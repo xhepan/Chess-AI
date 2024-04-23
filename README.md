@@ -43,6 +43,9 @@ Your agent should employ the following strategy:
 - **Move Selection**: Run Stockfish on all potential board states to determine the most popular move suggested by Stockfish across all boards. In case of ties, select a move randomly.
 
 
+## DEBUGING
+- if you get `ModuleNotFoundError: No module named 'pkg_resources'` then `pip install setuptools`
+
 ## References
 
 For further details, you can refer to the paper by Perrotta et al. (2022) available [here](https://proceedings.mlr.press/v176/perrotta22a.html). This paper discusses existing attempts to play Reconnaissance Blind Chess.
