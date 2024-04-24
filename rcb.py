@@ -1,7 +1,7 @@
 import random
 import chess.engine
 from reconchess import *
-
+import time
 class QB(Player):
     def __init__(self):
         self.board = chess.Board()
@@ -14,6 +14,7 @@ class QB(Player):
     def handle_game_start(self, color: Color, board: chess.Board, opponent_name: str):
         self.color = color
         self.board = board
+        self.start_time = time.time()
 
     def handle_opponent_move_result(self, captured_my_piece: bool, capture_square: Optional[Square]):
         self.my_piece_captured_square = capture_square 
@@ -77,9 +78,9 @@ class QB(Player):
         try:
             # if the engine is already terminated then this call will throw an exception
             self.engine.quit()
+            end_time = time.time() 
+            print(f"Game duration: {end_time - self.start_time} seconds")
         except chess.engine.EngineTerminatedError:
             pass
     
 
-# if __name__ == '__main__':
-#     reconchess.play_local_game(QB())
